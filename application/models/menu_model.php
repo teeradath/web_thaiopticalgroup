@@ -10,7 +10,7 @@ class Menu_model extends CI_Model{
     	$rs = $this->db->where("parent_id = 0 and is_disable = 0")->order_by("ordering asc")->get("menus")->result_array();
     	foreach ($rs as $row){
     		$n = $this->db->where('parent_id = '.$row['menu_id'])->get("menus")->num_rows();
-    		$this->menus .= "<li ".$this->getClassDropdown($n).">";
+    		$this->menus .= "<li ".$this->getClassDropdown($n,$row).">";
     		$this->menus .= "<a ".$this->getClassDropdownToggle($n)." href='".$this->getMenuUrl($row)."' >".$this->lang->line($row["menu_name"]).$this->getClassCaret($n)."</a>";
     		$this->ParentMenus($row['menu_id']);
     		$this->menus .= "</li>";
@@ -41,8 +41,14 @@ class Menu_model extends CI_Model{
 		return ($n>0?"<b class='caret'></b>":"");
 	}
 	
-	public function getClassDropdown($n){
-		return ($n>0?'class="dropdown"':'');
+	public function getClassDropdown($n,$row){
+		$class="";
+		if($n>0)
+			$class = "dropdown";
+		if($row['menu_url']=='home')
+			$class.=" active";
+				
+		return 'class="'.$class.'"';
 	}
 	
 	public function getClassDropdownToggle($n){
