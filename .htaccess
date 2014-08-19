@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteBase /thaioptical/
+RewriteCond $1 !^(index\.php|css|js|images|ckeditor|upload|ckfinder|font-awesome-4.1.0|fonts)
+RewriteRule ^(.*)$ index.php [L]

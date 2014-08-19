@@ -1,0 +1,201 @@
+/*!
+ * Start Bootstrap - Modern Business HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+	background-color:#005192;
+	background-image: url('../images/logo/bg.jpg') ;
+	background-repeat: repeat-x;
+}
+
+.img-portfolio {
+    margin-bottom: 30px;
+}
+
+.img-hover:hover {
+    opacity: 0.8;
+}
+
+/* Home Page Carousel */
+
+/* Header */
+#header {
+    height: 200px;
+	/*background-image: url('../images/logo/logo_TOG.png');
+	background-size: 300px;
+	background-repeat: no-repeat;*/
+}
+#header p {
+	color : #CCC;
+}
+.title-web1{
+color:#DDD;
+margin:0;
+font-size:1.8em;
+}
+.title-web2{
+color:#DDD;
+margin:0;
+font-size:1.5em;
+}
+/*Slider*/
+#slider.carousel {
+    height: 350px;
+	margin-bottom:5px;
+}
+
+#slider.carousel .item,
+#slider.carousel .item.active,
+#slider.carousel .carousel-inner {
+    height: 100%;
+}
+
+#slider.carousel .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.carousel-indicators li{
+background-color:#052e5c;
+border-color:#005192;
+}
+.carousel-indicators {
+bottom: -30px;
+margin-bottom:6px;
+}
+
+/* 404 Page Styles */
+/**/.width{
+	width: 95%;
+	margin: 0 auto;
+	padding:15px
+}
+.error-404 {
+    font-size: 100px;
+}
+
+/* Pricing Page Styles */
+
+.price {
+    display: block;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+.price sup {
+    top: -20px;
+    left: 2px;
+    font-size: 20px;
+}
+
+.period {
+    display: block;
+    font-style: italic;
+}
+/* Menu ------------------------- */
+.navbar{margin-bottom:0px;}
+.nav a{ color : #EEE;}
+
+.nav  li a:hover{background-color : #052e5c; color:#FFF}
+
+.navbar-inverse{background-color : transparent;	border:none;}
+.navbar-inverse .navbar-nav>li>a {color: #CCC;}
+.navbar-inverse .navbar-nav>li>a:hover,.navbar-inverse .navbar-nav>li>a:focus{color:#fff;}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav .open >a:focus{	color:#fff;	background-color:#1e7fc4}
+.navbar-inverse .navbar-nav>.active>a,.navbar-inverse .navbar-nav>.active>a:hover,.navbar-inverse .navbar-nav>.active>a:focus{color:#fff;background-color:#1e7fc4}
+.navbar-inverse .navbar-nav>.open>a,.navbar-inverse .navbar-nav>.open>a:hover,.navbar-inverse .navbar-nav>.open>a:focus{color:#fff;background-color:#1e7fc4}
+
+@media (min-width:1430px){.navbar-collapse{padding-left:0;padding-right:0;} }
+@media (min-width:992px){.navbar-collapse{padding-left:0;padding-right:0;} }
+@media (min-width:768px){.navbar-collapse{padding-left:0;padding-right:0;} }
+/*---------------------------------------------*/
+@media screen and (min-width:1430px) { .tb-title{ width:100%; height: 125px; } .head-margin{margin-bottom:40px;} .size-logo{ max-height:124px;}.brand{display:none;} }
+@media screen and (min-width:1200px) and (max-width:1430px) { .tb-title{ width:100%; height: 80px; } .tb-title h2{ font-size:1.3em; } .tb-title h3{ font-size:1em;} .head-margin{margin-bottom:20px;} .size-logo{ max-height:124px;}.brand{display:none;} }
+@media screen and (min-width:768px) and (max-width:1200px) { .tb-title{ display:none } .head-margin{margin-bottom:20px;} .size-logo{ max-width:132px;} .brand{display:none;} }
+@media screen  and (max-width:768px) { .tb-title{ display:none; } .head-margin{margin-bottom:0px;} .size-logo{ max-height:33px;} .lang-bar{display:none;} .img-logo{display:none;} }
+
+/* Language Bar*/
+.lang-bar{
+	margin-top: 15px;
+	float: right;
+}
+.lang-bar a{
+	color:#FFF;
+}
+
+/*News update*/
+.news{background-color:#082439;}
+.news .news-head {padding: 10px 15px;}
+.news .news-head h2{color:#DDD}
+.news .news-body {padding-left:15px; padding-right:15px; padding-bottom:15px;}
+.news .news-body h3{color:#DDD}
+.news .news-body p{color:#DDD}
+
+/*Content style*/
+.bg-content{
+	background-color:#FFF;
+	padding:15px;
+}
+/*Imager gallery*/
+.gallery a img{
+	padding:3px;
+}
+.gallery p{
+	padding:5px;
+}
+.category{
+text-align:center;
+}
+/*Button Right*/
+.btn-right{width:100%;text-align:right;margin-top:15px;}
+
+/*a Right*/
+.anchor-right{	width:100%;text-align:right;margin-top:15px;}
+.anchor-right a{color: #eee;font-size: 0.9em}
+/* Footer Styles */
+/* Footer Styles */
+
+footer {
+    margin: 10px 0;
+}
+footer p{
+    text-align:center;
+	color:#EEE;
+}
+/* Responsive Styles */
+
+@media(max-width:991px) {
+    .customer-img,
+    .img-related {
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width:767px) {
+    .img-portfolio {
+        margin-bottom: 15px;
+    }
+
+    header.carousel .carousel {
+        height: 70%;
+    }
+}
+
+/*Portfolio -------------------------*/
+div.gallery .preview{display:block;position:relative}
+div.gallery .preview .overlay{width:100%;height:100%;position:absolute;left:0;top:0;background:rgba(0,0,0,0.4);opacity:0;filter:alpha(opacity=0);-webkit-transition:opacity 300ms;-moz-transition:opacity 300ms;-o-transition:opacity 300ms;transition:opacity 300ms}
+div.gallery .preview .links{width:104px;height:40px;position:absolute;top:50%;left:50%;margin-top:-20px;margin-left:-52px;opacity:0;filter:alpha(opacity=0);-webkit-transform:translate(0,-50px);-moz-transform:translate(0,-50px);-ms-transform:translate(0,-50px);-o-transform:translate(0,-50px);transform:translate(0,-50px);-webkit-transition:300ms;-moz-transition:300ms;-o-transition:300ms;transition:300ms}
+div.gallery .preview .links>a{width:50px;height:40px;line-height:40px;display:inline-block;text-align:center;background:#1e7fc4;color:#fff;text-shadow:0 1px rgba(0,0,0,0.3);font-size:18px;margin:0 1px}
+div.gallery .preview:hover .overlay,div.gallery .preview:hover .links{opacity:1;filter:alpha(opacity=100)}
+div.gallery .preview:hover .links{-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);-o-transform:translate(0,0);transform:translate(0,0)}*/
