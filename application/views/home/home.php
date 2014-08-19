@@ -72,7 +72,7 @@
 						<div class="overlay"></div>
 						<div class="links">
 							<a data-toggle="modal" href="#modal-<?php echo $i?>"><i class="glyphicon glyphicon-eye-open" style="line-height:40px;"></i>
-							</a><a href="#"><i class="glyphicon glyphicon-link" style="line-height:40px;"></i></a>                        
+							</a><a href="gallery/gallery_detail/<?php echo $row_gal['gal_id']?>"><i class="glyphicon glyphicon-link" style="line-height:40px;"></i></a>                        
 						</div>
 				</div>
 				<div class="category">
