@@ -30,6 +30,9 @@
     <!-- Custom Fonts -->
     <link href="<?php echo base_url();?>font-awesome-4.1.0/css/font-awesome.min.css?cache=1" rel="stylesheet" type="text/css">
 
+     <!-- jQuery Version 1.11.0 -->
+    <script src="<?php echo base_url();?>js/jquery-1.11.0.js?cache=1"></script>
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]><![endif]-->
@@ -82,26 +85,21 @@
                     <ul class="nav" id="side-menu">
                     	<!-- Menu Admin -->
                     	<li>
-                            <a class="active" href="#"><span class="fa fa-sitemap fa-fw"></span> Menus</a>
+                            <a class="<?php echo @$active=='Menus'?'active':''?>" href="#"><span class="fa fa-sitemap fa-fw"></span> Menus</a>
                         </li>
                         <li>
-                            <a href="#"><span class="glyphicon glyphicon-user"></span> Users</a>
+                            <a class="<?php echo @$active=='Users'?'active':''?>" href="#"><span class="glyphicon glyphicon-user"></span> Users</a>
                         </li>
                     	<li>
-                            <a class="" href="#"><span class="glyphicon glyphicon-book"></span> News</a>
+                            <a class="<?php echo @$active=='News'?'active':''?>"  href="tog_admin/news_list"><span class="glyphicon glyphicon-book"></span> News</a>
                         </li>
                         <li>
-                            <a class="" href="#"><span class="glyphicon glyphicon-camera"></span> Gallery</a>
+                            <a class="<?php echo @$active=='Gallery'?'active':''?>"  href="#"><span class="glyphicon glyphicon-camera"></span> Gallery</a>
                         </li>
-                        <li>
+                        <li class="<?php echo @$active=='Article'?'active':''?>" >
                             <a href="#"><span class="glyphicon glyphicon-list"></span> Article<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Flot Charts</a>
-                                </li>
-                                <li>
-                                    <a href="#">Morris.js Charts</a>
-                                </li>
+                                <?php echo $article_menu;?>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -114,20 +112,15 @@
         </nav>
 
         <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Welcome to Administrator</h1>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
+            <?php 
+		    	if(isset($content_text)){echo $content_text;} if(isset($content_view) && !isset($content_data)){ $this->load->view($content_view); } 
+		    	if(isset($content_view) && isset($content_data)){ foreach($content_data as $key => $value){ $data[$key] = $value; } $this->load->view($content_view,$data); }
+		    ?>	
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
-
-    <!-- jQuery Version 1.11.0 -->
-    <script src="<?php echo base_url();?>js/jquery-1.11.0.js?cache=1"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="<?php echo base_url();?>js/bootstrap.min.js?cache=1"></script>

@@ -32,6 +32,21 @@ class Menu_model extends CI_Model{
 				$this->menus .= "</ul>";
 			}
 	}
+	
+	public function GetMenuIsArticle(){
+		$this->lang->load('th','th');
+		$article = "";
+		$this->db->cache_on();
+		$rs = $this->db->where("is_article = 1 and is_disable = 0")->order_by("ordering asc")->get("menus")->result_array();
+		foreach ($rs as $row){
+			$n = $this->db->where('parent_id = '.$row['menu_id'])->get("menus")->num_rows();
+			$article .= "<li class='nav nav-second-level'>";
+			$article .= "<a href='".$this->getMenuUrl($row)."' >".$this->lang->line($row["menu_name"])."</a>";	
+			$article .= "</li>";
+		}
+		return $article;
+	}
+	
 	/*Get Condition ------------------------------------------------------------*/
 	public function getMenuUrl($row){
 		return ($row['menu_url']!=""&&$row['is_article']==0?$row['menu_url']:'#');

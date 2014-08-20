@@ -13,7 +13,7 @@ class Home extends CI_Controller {
 
 		//@data Get news
 		$this->load->model("news_model");
-		$rs = $this->news_model->GetNews($this->session->userdata('lang_id'));
+		$rs = $this->news_model->GetNews($this->session->userdata('lang_id'))->result_array();
 		$data['arr_news'] = $rs;
 		//@data Get Gallery
 		$this->load->model("gallery_model");
