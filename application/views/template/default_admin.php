@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,6 +32,10 @@
 
      <!-- jQuery Version 1.11.0 -->
     <script src="<?php echo base_url();?>js/jquery-1.11.0.js?cache=1"></script>
+    
+    <!-- CKEditor -->
+    <script type="text/javascript" src="<?php echo base_url(); ?>ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>ckfinder/ckfinder.js"></script>
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -85,16 +89,17 @@
                     <ul class="nav" id="side-menu">
                     	<!-- Menu Admin -->
                     	<li>
-                            <a class="<?php echo @$active=='Menus'?'active':''?>" href="#"><span class="fa fa-sitemap fa-fw"></span> Menus</a>
+                            <?php echo anchor('tog_admin','<span class="fa fa-sitemap fa-fw"></span> Menus', 'class="'.(@$active=='Menus'?'active':'').'"')?>
                         </li>
                         <li>
-                            <a class="<?php echo @$active=='Users'?'active':''?>" href="#"><span class="glyphicon glyphicon-user"></span> Users</a>
+                            <?php echo anchor('tog_admin','<span class="glyphicon glyphicon-user"></span> Users', 'class="'.(@$active=='Users'?'active':'').'"')?>
                         </li>
                     	<li>
-                            <a class="<?php echo @$active=='News'?'active':''?>"  href="tog_admin/news_list"><span class="glyphicon glyphicon-book"></span> News</a>
+                            
+                            <?php echo anchor('tog_admin/news_list','<span class="glyphicon glyphicon-book"></span> News','class="'.(@$active=='News'?'active':'').'"')?>
                         </li>
                         <li>
-                            <a class="<?php echo @$active=='Gallery'?'active':''?>"  href="#"><span class="glyphicon glyphicon-camera"></span> Gallery</a>
+                            <?php echo anchor('tog_admin/gallery_list','<span class="glyphicon glyphicon-camera"></span> Gallery', 'class="'.(@$active=='Gallery'?'active':'').'"')?>
                         </li>
                         <li class="<?php echo @$active=='Article'?'active':''?>" >
                             <a href="#"><span class="glyphicon glyphicon-list"></span> Article<span class="fa arrow"></span></a>

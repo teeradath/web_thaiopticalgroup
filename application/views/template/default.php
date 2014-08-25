@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title><?php echo $title?></title>
+	
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,6 +23,13 @@
     <!--[if lt IE 9]><![endif]-->
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?cache=1"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js?cache=1"></script>
+     <!-- jQuery Version 1.11.0 -->
+    <script src="<?php echo base_url();?>js/jquery-1.11.0.js?cache=1"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<?php echo base_url();?>js/bootstrap.min.js?cache=1"></script>
+    <!-- Script to Activate the Carousel -->
+    <title><?php echo urldecode($title);?></title>
 </head>
 <body>
 <!-- Header Carousel -->
@@ -59,7 +66,6 @@
                     <span class="icon-bar"></span>
                 </button>
 				<div class="brand"><div class="navbar-brand"><img src="<?php echo base_url();?>images/logo/logo_TOG2.png" class="size-logo" /></div></div>
-				 
 				<?php echo anchor('home/change_lang/en','<img src="'.base_url().'images/flag/en.png" width="24" height="16" title="English" />','class="navbar-toggle" style="padding:0;margin-top:15px"');?>
 				<?php echo anchor('home/change_lang/th','<img src="'.base_url().'images/flag/th.png" width="24" height="16" title="Thailand" />','class="navbar-toggle" style="padding:0;margin-top:15px"');?>
 				
@@ -80,11 +86,10 @@
         <!-- /.container -->
     </nav>
 
-    
-
     <!-- Page Content -->
     <div class="container">
 		<div class="bg-content">
+			
 			<?php
 		    	if(isset($content_text)){echo $content_text;} if(isset($content_view) && !isset($content_data)){ $this->load->view($content_view); } 
 		    	if(isset($content_view) && isset($content_data)){ foreach($content_data as $key => $value){ $data[$key] = $value; } $this->load->view($content_view,$data); }
@@ -103,27 +108,5 @@
             </div>
         </footer>
 	</div>	
-		
-		
-		
-    <!-- jQuery Version 1.11.0 -->
-    <script src="<?php echo base_url();?>js/jquery-1.11.0.js?cache=1"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?php echo base_url();?>js/bootstrap.min.js?cache=1"></script>
-	<script src="<?php echo base_url();?>js/bjqs-1.3.min.js?cache=1"></script>
-    <!-- Script to Activate the Carousel -->
-    <script>
-	$(function () {
-         $('#banner-fade').bjqs({
-            height: 350,
-            width: 1340,
-            responsive: true,
-			animtype : 'slide'
-        });
-    });
-    </script>
-
 </body>
-
 </html>

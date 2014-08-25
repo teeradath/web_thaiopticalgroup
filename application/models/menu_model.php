@@ -4,14 +4,14 @@ class Menu_model extends CI_Model{
 	public function __construct() {
         parent::__construct();
     }
-    
+    //@Menu in Front end
     public function GetMenu(){
     	$this->db->cache_on();
-    	$rs = $this->db->where("parent_id = 0 and is_disable = 0")->order_by("ordering asc")->get("menus")->result_array();
-    	foreach ($rs as $row){
+    	$rs = $this->db->where("parent_id = 0 and is_disable = 0")->order_by("ordering asc")->get("menus");
+    	foreach ($rs->result_array() as $row){
     		$n = $this->db->where('parent_id = '.$row['menu_id'])->get("menus")->num_rows();
     		$this->menus .= "<li ".$this->getClassDropdown($n,$row).">";
-    		$this->menus .= "<a ".$this->getClassDropdownToggle($n)." href='".$this->getMenuUrl($row)."' >".$this->lang->line($row["menu_name"]).$this->getClassCaret($n)."</a>";
+    		$this->menus .= anchor($this->getMenuUrl($row),$this->lang->line($row["menu_name"]).$this->getClassCaret($n),$this->getClassDropdownToggle($n));
     		$this->ParentMenus($row['menu_id']);
     		$this->menus .= "</li>";
     	}
@@ -25,14 +25,14 @@ class Menu_model extends CI_Model{
 				$this->menus .= "<ul class='dropdown-menu'>";
 				foreach ($result->result_array() as $row){
 					$this->menus .= "<li>";
-					$this->menus .= "<a href='#'>".$this->lang->line($row["menu_name"])."</a>";
+					$this->menus .= anchor('#',$this->lang->line($row["menu_name"]));
 					$this->ParentMenus($row['menu_id']);
 					$this->menus .= "</li>";
 				}
 				$this->menus .= "</ul>";
 			}
 	}
-	
+	//@Menu Article in Admin
 	public function GetMenuIsArticle(){
 		$this->lang->load('th','th');
 		$article = "";
@@ -41,13 +41,13 @@ class Menu_model extends CI_Model{
 		foreach ($rs as $row){
 			$n = $this->db->where('parent_id = '.$row['menu_id'])->get("menus")->num_rows();
 			$article .= "<li class='nav nav-second-level'>";
-			$article .= "<a href='".$this->getMenuUrl($row)."' >".$this->lang->line($row["menu_name"])."</a>";	
+			$article .= anchor($this->getMenuUrl($row),$this->lang->line($row["menu_name"]));
 			$article .= "</li>";
 		}
 		return $article;
 	}
 	
-	/*Get Condition ------------------------------------------------------------*/
+	/*Set Class css And Href Url------------------------------------------------------------*/
 	public function getMenuUrl($row){
 		return ($row['menu_url']!=""&&$row['is_article']==0?$row['menu_url']:'#');
 	}

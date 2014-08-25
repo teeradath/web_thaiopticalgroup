@@ -38,6 +38,9 @@
 |
 */
 
+$route['News-(:any)-(:num).html'] = 'news/text_news/$1/$2';
+
+
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 

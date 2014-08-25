@@ -1,24 +1,17 @@
-<?php
+<?php 
 class Home extends CI_Controller {
-
 	public function index()
 	{
-		//init Language
-		if($this->session->userdata('lang_id')==null){
-			$this->lang->load('th','th');
-			$this->session->set_userdata('lang_id','th');
-		}else{
-			$this->lang->load($this->session->userdata('lang_id'),$this->session->userdata('lang_id'));
-		}
-
-		//@data Get news
+		//@Init Session Language
+		$this->load->library('load_language');
+		//@ friendly Url
+		$this->load->library('url_friendly');
+		//@Get News data
 		$this->load->model("news_model");
-		$rs = $this->news_model->GetNews($this->session->userdata('lang_id'))->result_array();
-		$data['arr_news'] = $rs;
-		//@data Get Gallery
+		$data['arr_news'] = $this->news_model->GetNews($this->session->userdata('lang_id'))->result_array();
+		//@Get Gallery data
 		$this->load->model("gallery_model");
-		$rs = $this->gallery_model->GetGallery($this->session->userdata('lang_id'));
-		$data['arr_gallery'] = $rs;
+		$data['arr_gallery'] = $this->gallery_model->GetGallery($this->session->userdata('lang_id'))->result_array();
 		//------------------------------------		
 		//init Template
 		$this->template->title = 'ThaiOpricalGroup';

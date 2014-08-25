@@ -1,18 +1,15 @@
 <?php
 class Login extends CI_Controller{
-	
 	public function index(){
 		if($this->input->post("login") != null){
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('password', 'Password', 'required');
 			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 			
-			if ($this->form_validation->run() == FALSE)
-			{
+			if (!$this->form_validation->run()){
 				$this->load->view('admin/login_form');
 			}
-			else
-			{
+			else{
 				$this->load->model('users_model');
 				$rs = $this->users_model->Check_login($this->input->post("email"),$this->input->post("password"));
 				if($rs->num_rows()>0){
@@ -26,8 +23,6 @@ class Login extends CI_Controller{
 					$this->load->view("admin/login_form",$data);
 				}
 			}
-			
-			
 		}else{
 			$this->load->view("admin/login_form");
 		}
