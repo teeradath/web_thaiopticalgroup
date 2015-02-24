@@ -9,7 +9,7 @@
 <!-- /.row -->
 <div class="row">
 	<div class="col-lg-12">
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 				News List
 			</div>
@@ -17,7 +17,7 @@
 				<div class="row">
 					<div class="col-md-6 ">
 						<div class="form-inline" style="margin-bottom: 10px">
-							<input type="text" class="form-control" placeholder="ค้นหา.." name="keyword" value="<?php echo @$_POST['keyword'];?>"> <input type="submit" class="btn btn-primary" value="ค้นหา" name="search">
+							<input type="text" class="form-control" placeholder="ค้นหา.." name="keyword" value="<?php echo @$_POST['keyword'];?>"> <input type="submit" class="btn btn-warning" value="ค้นหา" name="search">
 						</div>
 					</div>
 					<div class="col-md-6" style="text-align: right;">

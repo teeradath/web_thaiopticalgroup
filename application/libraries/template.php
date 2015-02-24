@@ -7,12 +7,19 @@ class Template {
 	
 	public function __construct(){
 		$this->ci = & get_instance();
+		//$this->ci->load->driver('cache', array('adapter' => 'file'));
 	}
 	
 	public function load_template($view = ''){
 		$this->ci->db->cache_on();
 		$this->ci->load->model("menu_model");
-		$data['str_menu'] = $this->ci->menu_model->GetMenu();
+		/*if($this->ci->cache->get('cache_item_menu')==""){
+			$strmenu = $this->ci->menu_model->GetMenu();
+			$this->ci->cache->save('cache_item_menu', $strmenu ,300);
+		}
+		$data['str_menu'] = $this->ci->cache->get('cache_item_menu');*/
+		$strmenu = $this->ci->menu_model->GetMenu();
+		$data['str_menu'] = $strmenu;
 		$data['content_view'] = $view; // View name
 		$data['content_data'] = $this->content_data; // Data Valiable
 		$data['title'] = $this->title;

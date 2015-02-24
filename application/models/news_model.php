@@ -14,10 +14,14 @@ class News_model extends CI_Model{
 	
 	//@Search News from Language
 	public function GetNewsSearch($keyword,$lang = 'th'){
+		$fillter = "";
+		$ex = explode('-', $keyword);
+		if(count($ex)==3)
+			$fillter = "news.news_date >= '".$keyword."' and news.news_date <= 'now()' or ";
 		return $this->db->order_by("news.news_date desc")->
 		join("news_language", "news_language.news_id = news.news_id")->join("language", "news_language.lang_id = language.lang_id")->
 		where("language.language = '".$lang."'
-				and (news.news_date >= '".$keyword."' and news.news_date <= now() or
+				and (".$fillter."
 					 news_language.news_title like '%".$keyword."%' or
 					 news_language.news_description like '%".$keyword."%'
 					)

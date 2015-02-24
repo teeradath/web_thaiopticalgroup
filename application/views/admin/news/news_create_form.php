@@ -17,7 +17,7 @@
 </div>
 <div class="row">
 	<div class="col-lg-12">
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 				News Infornation
 			</div>
@@ -25,7 +25,7 @@
 				<!-- Button -->
 				<div class="form-horizontal" style="text-align: right;">
 					<div class="form-group">
-						<div class="col-sm-offset-10 col-sm-2">
+						<div class="col-sm-offset-6 col-sm-6">
 							<?php echo anchor('tog_admin/news_list','Back','class="btn btn-primary"');?>
 							<input type="submit" class="btn btn-primary" name="save" value="Save News"/>
 						</div>
@@ -74,6 +74,7 @@
 	</div>
 </div>
 <?php echo form_close();?>
+
 <script>
 <?php foreach ($arr_lang as $row3): ?>
 	CKEDITOR.replace('area_<?php echo $row3['language'];?>', {  

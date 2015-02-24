@@ -1,22 +1,21 @@
-<!-- Page Heading/Breadcrumbs -->
 <?php echo form_open('')?>
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">
-			<?php echo $this->lang->line('News Update');?>
+			<i class="glyphicon glyphicon-book"></i> <?php echo $this->lang->line('News Update');?>
 		</h1>
 		<ol class="breadcrumb">
-			<li><?php echo anchor('home',$this->lang->line('HOME'));?></li>
+			<li><?php echo anchor('Home.html',$this->lang->line('HOME'));?></li>
 			<li class="active"><?php echo $this->lang->line('News Update');?></li>
 		</ol>
 	</div>
 </div>
 <!-- /.row -->
 <div class="row">
-	<div class="col-lg-9"><?php echo @$keyword!=''?'<h2>'.$this->lang->line('Search Results').' "'.$keyword.'"</h2>':'';?></div>
-	<div class="col-lg-3">
+	<div class="col-lg-8"><?php echo @$keyword!=''?'<h2>'.$this->lang->line('Search Results').' "'.$keyword.'"</h2>':'';?></div>
+	<div class="col-lg-4">
 		<div class="form-horizontal" style="text-align: right;">
-			<div class="form-inline">
+			<div class="form-inline hidden-xs">
 				<input type="text" class="form-control" placeholder="<?php echo $this->lang->line('Search')?>.." name="keyword" value="<?php echo @$keyword?>"> <input type="submit" class="btn btn-primary" value="<?php echo $this->lang->line('Search')?>" name="search">
 			</div>
 		</div>
@@ -42,7 +41,7 @@
 						</tr>
 					<?php endforeach;?>
 				<?php else:?>
-				<div style="width: 100%;text-align: center;"><?php echo $this->lang->line('Not found record');?></div>
+					<tr><td colspan="2"><?php echo $this->lang->line('Not found record');?></td></tr>
 				<?php endif;?>
 				</table>
 				<div style="width: 100%;text-align: right ;">

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
-    
+    <meta property="fb:admins" content="100001517311667"/>
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>images/favicon.ico?cache=1">
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url();?>css/bootstrap.min.css?cache=1" rel="stylesheet" media="all">
@@ -18,6 +17,10 @@
     <!-- Custom Fonts -->
     <link href="<?php echo base_url();?>font-awesome-4.1.0/css/font-awesome.min.css?cache=1" rel="stylesheet" type="text/css" >
 
+	<!-- Gallery image -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/style.css?cache=1" />
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/elastislide.css?cache=1" />
+	
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]><![endif]-->
@@ -36,7 +39,7 @@
     <header class="container">
 		<div class="row head-margin" style="">
 			<div class="col-md-2 img-logo">
-			<img class="img-responsive size-logo" src="<?php echo base_url();?>images/logo/logo_TOG.png"/>
+			<?php echo anchor('home','<img class="img-responsive size-logo" src="'.base_url().'images/logo/logo_TOG.png"/>')?>
 			</div>
 			<div class="col-md-10">
 				<!--<div id="tran" class="tran-img"><img class="img-responsive" src="images/logo/tran.png" ></div>-->
@@ -65,9 +68,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-				<div class="brand"><div class="navbar-brand"><img src="<?php echo base_url();?>images/logo/logo_TOG2.png" class="size-logo" /></div></div>
-				<?php echo anchor('home/change_lang/en','<img src="'.base_url().'images/flag/en.png" width="24" height="16" title="English" />','class="navbar-toggle" style="padding:0;margin-top:15px"');?>
-				<?php echo anchor('home/change_lang/th','<img src="'.base_url().'images/flag/th.png" width="24" height="16" title="Thailand" />','class="navbar-toggle" style="padding:0;margin-top:15px"');?>
+				<div class="brand"><div class="navbar-brand">
+					<?php echo anchor('home','<img class="size-logo" src="'.base_url().'images/logo/logo_TOG2.png"/>')?>
+				</div>
+			</div>
+				<?php echo anchor('home/change_lang/en/'.$this->uri->segment(1),'<img src="'.base_url().'images/flag/en.png" width="24" height="16" title="English" />','class="navbar-toggle" style="padding:0;margin-top:15px"');?>
+				<?php echo anchor('home/change_lang/th/'.$this->uri->segment(1),'<img src="'.base_url().'images/flag/th.png" width="24" height="16" title="Thailand" />','class="navbar-toggle" style="padding:0;margin-top:15px"');?>
 				
 				
             </div>
@@ -77,8 +83,8 @@
                 	<?php echo $str_menu;?>
                 </ul>
 				<div class="lang-bar">
-				<?php echo anchor('home/change_lang/th','<img src="'.base_url().'images/flag/th.png" width="24" height="16" title="Thailand" />');?> | 
-				<?php echo anchor('home/change_lang/en','<img src="'.base_url().'images/flag/en.png" width="24" height="16" title="English" />');?>
+				<?php echo anchor('home/change_lang/th/'.$this->uri->segment(1),'<img src="'.base_url().'images/flag/th.png" width="24" height="16" title="Thailand" />');?> | 
+				<?php echo anchor('home/change_lang/en/'.$this->uri->segment(1),'<img src="'.base_url().'images/flag/en.png" width="24" height="16" title="English" />');?>
 				</div>
             </div>
             <!-- /.navbar-collapse -->
@@ -87,14 +93,17 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
+    <div class="container" <?php echo $this->session->userdata('activeTopMenu_id')==6?'style="width: 100%;padding: 0"':''?>>
+    <?php if($this->session->userdata('activeTopMenu_id')!=6):?>
 		<div class="bg-content">
-			
+	<?php endif;?>
 			<?php
 		    	if(isset($content_text)){echo $content_text;} if(isset($content_view) && !isset($content_data)){ $this->load->view($content_view); } 
 		    	if(isset($content_view) && isset($content_data)){ foreach($content_data as $key => $value){ $data[$key] = $value; } $this->load->view($content_view,$data); }
 		    ?>
+	<?php if($this->session->userdata('activeTopMenu_id')!=6):?>
 		</div> 
+	<?php endif;?>
     </div>
 	
     <!-- /.container -->

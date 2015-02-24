@@ -38,9 +38,48 @@
 |
 */
 
+//News detail
 $route['News-(:any)-(:num).html'] = 'news/text_news/$1/$2';
 
+//Gallery Detail
+$route['Gallery-(:any)-(:num).html'] = 'gallery/gallery_detail/$1/$2';
 
+//Article
+$route['Article-(:any)-(:num).html'] = 'article/index/$1/$2';
+
+//Home
+$route['Home.html'] = 'home/index';
+
+//News List
+$route['News.html'] = 'news/index';
+$route['News.html/(:num)'] = 'news/index/$1';
+
+//Gallery List
+$route['Gallery.html'] = 'Gallery/index';
+$route['Gallery.html/(:num)'] = 'Gallery/index/$1';
+
+//Products
+$route['Products.html'] = 'Products/index';
+
+//Financial Statement
+$route['Financial_Statement.html'] = 'Financial_Statement/index';
+
+//Contract
+$route['Contact.html'] = 'contact/index';
+
+//Annual Report
+$route['Annual_Report.html'] = 'annual_report/index';
+$route['Annual_Report-(:any).html'] = 'annual_report/index/$1';
+
+//Form 56-1
+$route['Form_56-1.html'] = 'Form_56_1/index';
+$route['Form_56-1.html/(:num)'] = 'Form_56_1/index/$1';
+
+//Annual General Meeting
+$route['Annual-General-Meeting.html'] = 'meeting/index';
+$route['Annual-General-Meeting.html/(:num)'] = 'meeting/index/$1';
+
+ //-----------------------------------------------------------------------------------
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 

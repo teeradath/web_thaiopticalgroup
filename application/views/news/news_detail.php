@@ -5,19 +5,19 @@
 </style>
 <div class="row">
 	<div class="col-lg-12">
-		<h1 class="page-header"><?php echo $this->lang->line('News Update');?> 
-			<small> <?php echo $row_news->news_title;?></small>
-			<?php echo anchor('News',$this->lang->line('News all')." <i class='glyphicon glyphicon-play'></i>",'class="newsAll"'); ?>
+		<h1 class="page-header"><i class="glyphicon glyphicon-book"></i> <?php echo $this->lang->line('News');?> 
+			<small class="hidden-xs"> <?php echo $row_news->news_title;?></small>
+			<?php echo anchor('News.html',$this->lang->line('News all')." <i class='glyphicon glyphicon-play'></i>",'class="newsAll"'); ?>
 		</h1>
 		
 	</div>
 </div>
 <!-- /.row -->
-<div class="row">
+<div class="row hidden-xs">
 	<div class="col-lg-12">
 		<ol class="breadcrumb">
-			<li><?php echo anchor('home',$this->lang->line('HOME'));?></li>
-			<li><?php echo anchor('News',$this->lang->line('News Update'));?></li>
+			<li><?php echo anchor('Home.html',$this->lang->line('HOME'));?></li>
+			<li><?php echo anchor('News.html',$this->lang->line('News Update'));?></li>
 			<li class="active"><?php echo $row_news->news_title;?></li>
 		</ol>
 	</div>
@@ -31,7 +31,8 @@
 		<!-- Date/Time -->
 		<p>
 			<i class="fa fa-clock-o"></i> 
-			<?php echo $this->lang->line('Posted on');?> <?php echo date("d/m/Y", strtotime($row_news->news_date)).' '.$this->lang->line('at').' '.date("H:i A", strtotime($row_news->news_date))?>
+			<?php echo $this->lang->line('Posted on');?> <?php echo date("d/m/Y", strtotime($row_news->news_date)).' '.$this->lang->line('at').' '.date("H:i A", strtotime($row_news->news_date))?><br/>
+			<i class="glyphicon glyphicon-signal" title="<?php echo $this->lang->line('View'); ?>"></i> <?php echo $view;?>
 		</p>
 		<hr/>
 		<!-- Post Content -->
@@ -42,7 +43,19 @@
 </div>
         
 <hr>
-        
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-comments" data-href="http://www.exceliteclick.com/News-News-<?php echo $row_news->news_id;?>.html" data-width="100%" data-numposts="6" data-colorscheme="light"></div>
+
+
 <!-- Pager -->
 <div class="row">
 	<div class="col-lg-12">
@@ -57,4 +70,6 @@
 	</div>
 </div>
 <!-- /.row -->
+
+
         

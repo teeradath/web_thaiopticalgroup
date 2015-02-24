@@ -38,12 +38,12 @@
 			
 			<div class="news-body">
 			<div class="anchor-right">
-					<?php echo anchor('News',$this->lang->line('News all')." <i class='glyphicon glyphicon-play'></i>"); ?>
+					<?php echo anchor('News.html',$this->lang->line('News all')." <i class='glyphicon glyphicon-play'></i>"); ?>
 			</div>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-5" style="margin-top:20px">
+	<div class="col-md-5 hidden-xs hidden-sm" style="margin-top:20px">
 		<img class="img-responsive" src="<?php echo base_url(); ?>images/logo/center_img.jpg" alt="" />
 	</div>
 	<!-- Iframe -->
@@ -57,7 +57,9 @@
 
 <!-- gallery Title-->
 <div class="row" style="margin-top:15px">
-	<div class="col-md-12 "><a href="gallery" style="color: #333;text-decoration: none;"><h1><span class="glyphicon glyphicon-camera"></span> <?php echo $this->lang->line('Gallery');?></h1></a></div>
+	<div class="col-md-12 ">
+		<?php echo anchor('Gallery.html','<h1><span class="glyphicon glyphicon-picture"></span> '.$this->lang->line('Gallery').'</h1>','style="color: #333;text-decoration: none;"')?>
+	</div>
 </div>
 <hr>
 			
@@ -73,11 +75,11 @@
 						<div class="overlay"></div>
 						<div class="links">
 							<a data-toggle="modal" href="#modal-<?php echo $i; ?>"><i class="glyphicon glyphicon-eye-open" style="line-height:40px;"></i>
-							</a><a href="gallery/gallery_detail/<?php echo $row_gal['gal_id']; ?>"><i class="glyphicon glyphicon-link" style="line-height:40px;"></i></a>                        
+							</a><?php echo anchor('Gallery-'.$this->url_friendly->friendly($row_gal['gal_category']).'-'.$row_gal['gal_id'].'.html','<i class="glyphicon glyphicon-link" style="line-height:40px;"></i>')?>                     
 						</div>
 				</div>
 				<div class="category">
-					<h4><?php echo $row_gal['gal_category']; ?></h4>
+					<h4><?php echo anchor('Gallery-'.$this->url_friendly->friendly($row_gal['gal_category']).'-'.$row_gal['gal_id'].'.html',$row_gal['gal_category'],'style="color:#333"'); ?></h4>
 					<p><?php echo $row_gal['gal_description']; ?></p>
 				</div>
                 <!-- Modal -->

@@ -343,3 +343,14 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+.ajax_load{
+	clear: both ;
+	display: none; 
+	z-index: 9999999; 
+	position: fixed; 
+	margin: auto;
+	top:35%;
+	left: 25%;
+	right: 25%;
+	text-align:center;
+}

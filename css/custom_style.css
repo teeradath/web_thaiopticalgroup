@@ -5,7 +5,7 @@
  */
 
 /* Global Styles */
-
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One);.clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
 html,
 body {
     height: 100%;
@@ -14,7 +14,7 @@ body {
 body {
     padding-top: 0px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 	background-color:#005192;
-	background-image: url('../images/logo/bg.jpg') ;
+	background-image: url('../images/logo/bg.jpg?cache=1') ;
 	background-repeat: repeat-x;
 }
 
@@ -210,3 +210,11 @@ div.gallery .preview:hover .links{-webkit-transform:translate(0,0);-moz-transfor
 .pager .next>a:HOVER {background-color: #1e7fc4;color: #fff;}
 /*.pager .previous>a {background-color: #052e5c;color: #ddd;}*/
 .pager .previous>a:HOVER {background-color: #1e7fc4;color: #fff;}
+
+.alert-top{
+	top: 0;
+	right: 0;
+	width: 30%;
+	position: absolute;
+	z-index: 999;
+}

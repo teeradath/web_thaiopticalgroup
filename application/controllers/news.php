@@ -1,6 +1,9 @@
 <?php
 class News extends CI_Controller{
 	public function index(){
+		//@ delete sess Active Menu
+		$this->session->unset_userdata('activeTopMenu_id');
+		
 		$this->load->library('load_language');
 		//@ friendly Url
 		$this->load->library('url_friendly');
@@ -17,7 +20,7 @@ class News extends CI_Controller{
 			//--------------------------------------------------------
 			//Get News List
 			$this->load->model('news_model');
-			$data['arr_new'] = $this->news_model->GetNews_list($config["per_page"],$this->uri->segment(3),$this->session->userdata('lang_id'))->result_array();
+			$data['arr_new'] = $this->news_model->GetNews_list($config["per_page"],$this->uri->segment(2),$this->session->userdata('lang_id'))->result_array();
 		}
 		//init Template
 		$this->template->title = $this->lang->line('News Update').' | ThaiOpricalGroup';
@@ -26,6 +29,9 @@ class News extends CI_Controller{
 	}
 	
 	public function text_news($news_title,$news_id){
+		//@ delete sess Active Menu
+		$this->session->unset_userdata('activeTopMenu_id');
+		
 		$this->load->library('load_language');
 		//@ friendly Url
 		$this->load->library('url_friendly');
@@ -38,6 +44,7 @@ class News extends CI_Controller{
 		//@insert News View
 		$view = $this->db->where('news_id = '.$news_id)->select('news_view')->get('news')->row();
 		$this->db->update('news',array('news_view'=> $view->news_view+1),'news_id = '.$news_id);
+		$data['view'] = $view->news_view;
 		//init Template
 
 		$this->template->title = $news_title.' | ThaiOpricalGroup';
@@ -49,7 +56,8 @@ class News extends CI_Controller{
 	// Config Pagination Class Bootstrap----------------------------------------------------
 	public function setConfigPagination(&$config){
 	
-		$config["base_url"] = base_url()."News/index";
+		$config["base_url"] = base_url("News.html/");
+		$config["uri_segment"] = 2;
 		$config["per_page"] = 20;
 		$total_row = $this->db->join("news_language", "news_language.news_id = news.news_id")->join("language", "news_language.lang_id = language.lang_id")->where("language.language = '".$this->session->userdata('lang_id')."'")->get("news")->num_rows();
 		$config["total_rows"] = $total_row;

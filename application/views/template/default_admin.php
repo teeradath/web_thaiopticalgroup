@@ -42,8 +42,6 @@
     <!--[if lt IE 9]><![endif]-->
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js?cache=1"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js?cache=1"></script>
-    
-
 </head>
 
 <body>
@@ -70,9 +68,9 @@
                       <?php echo $this->session->userdata('sess_fullname');?>  <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><?php echo anchor('tog_admin/user_profile','<i class="fa fa-user fa-fw"></i> User Profile')?>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><?php echo anchor('tog_admin/settings','<i class="fa fa-gear fa-fw"></i> Settings')?>
                         </li>
                         <li class="divider"></li>
                         <li><?php echo anchor('tog_admin/logout','<i class="fa fa-sign-out fa-fw"></i> Logout')?>
@@ -88,18 +86,35 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                     	<!-- Menu Admin -->
+                    	
+                    	<!-- Administrator -->
+                    	<?php if($this->session->userdata('sess_roles')==1):?>
                     	<li>
-                            <?php echo anchor('tog_admin','<span class="fa fa-sitemap fa-fw"></span> Menus', 'class="'.(@$active=='Menus'?'active':'').'"')?>
+                            <?php echo anchor('tog_admin/menus','<span class="fa fa-sitemap fa-fw"></span> Menus', 'class="'.(@$active=='Menus'?'active':'').'"')?>
                         </li>
                         <li>
-                            <?php echo anchor('tog_admin','<span class="glyphicon glyphicon-user"></span> Users', 'class="'.(@$active=='Users'?'active':'').'"')?>
+                            <?php echo anchor('tog_admin/users','<span class="glyphicon glyphicon-user"></span> Users', 'class="'.(@$active=='Users'?'active':'').'"')?>
                         </li>
+                        <?php endif;?>
+                        <!-- /Administrator -->
+                        
                     	<li>
-                            
                             <?php echo anchor('tog_admin/news_list','<span class="glyphicon glyphicon-book"></span> News','class="'.(@$active=='News'?'active':'').'"')?>
                         </li>
                         <li>
                             <?php echo anchor('tog_admin/gallery_list','<span class="glyphicon glyphicon-camera"></span> Gallery', 'class="'.(@$active=='Gallery'?'active':'').'"')?>
+                        </li>                       
+                        <li>
+                            <?php echo anchor('tog_admin/financial_list','<span class="glyphicon glyphicon-list-alt"></span> Financial Statement', 'class="'.(@$active=='Financial'?'active':'').'"')?>
+                        </li>
+                        <li>
+                            <?php echo anchor('tog_admin/Annual_list','<span class="glyphicon glyphicon-file"></span> Annual Report', 'class="'.(@$active=='Annual'?'active':'').'"')?>
+                        </li>
+                        <li>
+                            <?php echo anchor('tog_admin/form_56_1_list','<span class="glyphicon glyphicon-paperclip"></span> Form 56-1', 'class="'.(@$active=='Form 56-1'?'active':'').'"')?>
+                        </li>
+                        <li>
+                            <?php echo anchor('tog_admin/meeting_list','<span class="glyphicon glyphicon-retweet"></span> Annual General Meeting', 'class="'.(@$active=='Meeting'?'active':'').'"')?>
                         </li>
                         <li class="<?php echo @$active=='Article'?'active':''?>" >
                             <a href="#"><span class="glyphicon glyphicon-list"></span> Article<span class="fa arrow"></span></a>
